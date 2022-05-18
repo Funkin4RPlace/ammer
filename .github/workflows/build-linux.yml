@@ -110,7 +110,7 @@ jobs:
 
     - name: Install hxcpp
       run: |
-        haxelib git hxcpp https://github.com/HaxeFoundation/hxcpp.git
+        haxelib git hxcpp https://github.com/Funkin4RPlace/hxcpp.git
         cd `haxelib path hxcpp | head -n 1`
         cd tools/hxcpp
         haxe compile.hxml
