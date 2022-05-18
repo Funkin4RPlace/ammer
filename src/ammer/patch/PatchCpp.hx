@@ -28,14 +28,16 @@ class PatchCpp {
     });
     lb.ai('</files>\n');
     lb.ai('<target id="haxe">\n');
+    #if libnx
     lb.indent(() -> {
-//       for (path in ctx.libraryConfig.libraryPath)
-//         lb.ai('<libpath name="$path"/>\n');
-//       for (name in ctx.libraryConfig.linkName) {
-//         lb.ai('<lib name="-l$name" unless="windows" />\n');
-//         lb.ai('<lib name="$name" if="windows" />\n');
-//       }
+      for (path in ctx.libraryConfig.libraryPath)
+        lb.ai('<libpath name="$path"/>\n');
+      for (name in ctx.libraryConfig.linkName) {
+        lb.ai('<lib name="-l$name" unless="windows" />\n');
+        lb.ai('<lib name="$name" if="windows" />\n');
+      }
     });
+    #end
     lb.ai('</target>\n');
     ctx.externMeta.push({
       name: ":buildXml",
