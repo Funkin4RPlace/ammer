@@ -28,7 +28,7 @@ class PatchCpp {
     });
     lb.ai('</files>\n');
     lb.ai('<target id="haxe">\n');
-    #if libnx
+    #if !libnx
     lb.indent(() -> {
       for (path in ctx.libraryConfig.libraryPath)
         lb.ai('<libpath name="$path"/>\n');
